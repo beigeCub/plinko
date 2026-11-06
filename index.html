@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+  <title>
+   Electric Plinko — Playable Prototype
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main aria-label="Electric Plinko game, simulated rewards" class="game">
+   <img alt="" class="art" id="art" src="assets/background.webp"/>
+   <canvas aria-label="Plinko pegboard and prizes" class="playboard" height="1672" id="board" width="941">
+   </canvas>
+   <div aria-live="polite" class="statusBox" id="statusBox" role="status">
+    <span class="winText" id="winText">
+     READY TO DROP · FREE PLAY
+    </span>
+   </div>
+   <div aria-label="Select number of balls" class="controls" id="controls" role="group">
+   </div>
+   <button aria-label="Drop selected balls" class="drop" id="drop" type="button">
+    ▶ DROP
+   </button>
+   <button aria-label="Game information" class="help" id="help" type="button">
+    Info
+   </button>
+   <div class="stats">
+    <span>
+     BALLS LANDED:
+     <b id="landed">
+      0
+     </b>
+    </span>
+    <span>
+     LAST:
+     <b id="lastWin">
+      —
+     </b>
+    </span>
+   </div>
+   <div class="demo-note">
+    DEMO ONLY · No real bets or redeemable prizes
+    <br/>
+    Silver = free spins value in AMD · Pink = instant cash
+   </div>
+   <div aria-label="Game information" aria-modal="true" class="modal" id="modal" role="dialog">
+    <div class="modal-body">
+     <h2>
+      ⚡ Electric Plinko
+     </h2>
+     <p>
+      Choose 1, 2, 3, 5, or 10 balls and press DROP. Watch each ball bounce through the pegs and land on one of the 13 prize slots.
+     </p>
+     <p>
+      <b>
+       Silver tickets
+      </b>
+      represent the AMD value of free spins—not the number of spins.
+      <b>
+       Pink tickets
+      </b>
+      represent instant cash. The center awards a lightning icon.
+     </p>
+     <p>
+      The middle slots are more likely than the outer slots. All rewards are simulated and cannot be redeemed.
+     </p>
+     <button id="close" type="button">
+      Back to game
+     </button>
+    </div>
+   </div>
+  </main>
+  <script src="game.js">
+  </script>
+ </body>
+</html>
+

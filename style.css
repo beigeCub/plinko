@@ -1,0 +1,251 @@
+/* Electric Plinko · visuals and layout */
+* {
+  box-sizing:border-box}
+html {
+  background:#020d20}
+body {
+  margin:0;
+  color:white;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  min-height:100dvh;
+  background:radial-gradient(ellipse at 50% 28%,#072d66 0,#020917 72%);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center}
+button {
+  font:inherit;
+  touch-action:manipulation;
+  cursor:pointer}
+ .game {
+  width:min(100vw,560px,calc(100dvh * 941 / 1672));
+  position:relative;
+  aspect-ratio:941/1672;
+  isolation:isolate;
+  overflow:hidden;
+  box-shadow:0 0 70px #000b;
+  background:#031024}
+ .art {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  pointer-events:none;
+  user-select:none}
+.playboard {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+  pointer-events:none}
+
+.controls {
+  position: absolute;
+  z-index: 5;
+  top: 71%;
+  left: 11%;
+  width: 78%;
+  height: 6.1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+
+  border: 2px solid #41baf9;
+  border-radius: 100px;
+  background: #04152a;
+  box-shadow: 0 0 12px #2b9ffe88;
+}
+
+.ball-option {
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+
+  color: white;
+  font-size: clamp(17px, 4.6vw, 27px);
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+   transform: translateY(-1px);
+     display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 0 7px 0;
+  transform: none;
+}
+
+.ball-option.active {
+  color: #ffffff;
+  border: 2px solid #ffe394;
+  background: linear-gradient(
+    180deg,
+    #ffe59a 0%,
+    #f9bd45 50%,
+    #c77b15 100%
+  );
+
+  box-shadow:
+    0 0 15px #ffad1b,
+    inset 0 2px 5px #fff6c5;
+}
+
+.ball-option:disabled {
+  opacity:.55}
+.ball-option.active:disabled {
+  opacity:1}
+.drop {
+  z-index:5;
+  position:absolute;
+  top:81.3%;
+  left:14%;
+  width:72%;
+  height:10.2%;
+  border-radius:90px;
+  border:3px solid #ffd5d9;
+  background:linear-gradient(180deg,#ffa8b2 0%,#f3183c 10%,#de0623 45%,#a60012 81%,#ff4e62 100%);
+  box-shadow:0 0 0 4px #c40024,0 0 30px #ff193db0,inset 0 5px 8px #fff8,inset 0 -12px 12px #670008cf;
+  color:white;
+  text-transform:uppercase;
+  font-style:italic;
+  font-size:clamp(24px,6.5vw,45px);
+  font-weight:950;
+  text-shadow:0 3px 6px #5d0012;
+  letter-spacing:.5px}
+.drop:active:not(:disabled) {
+  transform:scale(.985)}
+.drop:disabled {
+  filter:saturate(.5);
+  opacity:.8;
+  cursor:default}
+.statusBox {
+  z-index:5;
+  position:absolute;
+  left:18%;
+  width:64%;
+  top:63.6%;
+  height:4%;
+  border:1px solid #379bea60;
+  border-radius:40px;
+  background:#04152aD9;
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  align-items:center;
+  padding:5px 8px;
+  box-shadow:0 0 20px #0ba6ff24;
+  color:#dcefff;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden}
+.statusBox .icon {
+  width: 55px;
+  height: 45px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.statusBox .winText {
+  font-size:clamp(10px,2.5vw,16px);
+  font-weight:700;
+  text-overflow:ellipsis;
+  overflow:hidden}
+.statusBox.win {
+  border-color:#ffe27f;
+  box-shadow:0 0 20px #ffba347f;
+  background:#10213bea}
+.demo-note {
+  position:absolute;
+  z-index:4;
+  bottom:1.65%;
+  left:5%;
+  width:90%;
+  color:#acc7e5c9;
+  text-align:center;
+  font-size:clamp(8px,1.9vw,11px);
+  line-height:1.45;
+  text-shadow:0 1px 4px #000}
+.stats {
+  position:absolute;
+  z-index:6;
+  bottom:4.2%;
+  left:8%;
+  right:8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#b7dfff;
+  font-size:clamp(10px,2.1vw,13px);
+  text-shadow:0 1px 6px black}
+.stats b {
+  color:white;
+  font-weight:800}
+ .help {
+  position:absolute;
+  z-index:9;
+  top:2.65%;
+  left:3.2%;
+  width:9%;
+  aspect-ratio:1;
+  border:0;
+  background:transparent;
+  color:transparent}
+.modal {
+  position:absolute;
+  z-index:20;
+  inset:0;
+  background:#020919d9;
+  display:none;
+  place-items:center;
+  padding:20px}
+.modal.open {
+  display:grid}
+.modal-body {
+  width:100%;
+  max-width:360px;
+  background:linear-gradient(150deg,#0b3160,#071527);
+  border:1px solid #4cbaff;
+  border-radius:18px;
+  padding:23px;
+  box-shadow:0 0 40px #000d}
+.modal-body h2 {
+  margin:0 0 14px}
+.modal-body p {
+  color:#d5e8fa;
+  font-size:14px;
+  line-height:1.55}
+.modal-body button {
+  padding:12px 25px;
+  border-radius:28px;
+  border:1px solid #8bc9ff;
+  background:#15578f;
+  color:white;
+  font-weight:800;
+  width:100%}
+ @media(min-width:560px) {
+  .ball-option {
+  font-size:28px}
+.drop {
+  font-size:45px}
+.statusBox .winText {
+  font-size:16px}
+.demo-note {
+  display: none;
+  font-size:11px}
+.stats {
+  font-size:13px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .drop {
+  transition:none}
+}
